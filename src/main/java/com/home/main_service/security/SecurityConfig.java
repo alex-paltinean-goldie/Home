@@ -21,6 +21,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity (not recommended for production)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/auth/signup").permitAll()
                         .requestMatchers("/public/**").permitAll()  // Public endpoints accessible to all
                         .requestMatchers("/users/**").hasRole("USER")  //  Endpoints accessible to users
                         .requestMatchers("/admin/**").hasRole("ADMIN")  // Endpoints accessible to admins
