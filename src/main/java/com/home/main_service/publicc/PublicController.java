@@ -14,7 +14,7 @@ public class PublicController {
 
     @GetMapping
     public PublicResponse getDefaults() {
-        logger.info("GET public jenkins");
+        logger.info("GET public jenkins2");
         return new PublicResponse("testing2");
     }
 
