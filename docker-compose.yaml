@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    image: my-spring-boot-app
+    container_name: spring-boot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+    environment:
+      SPRING_PROFILES_ACTIVE: prod  # Change to "dev" or "test" as needed
+
+  mariadb:
+    image: mariadb:latest
+    container_name: maria-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3308:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
+    driver: local
