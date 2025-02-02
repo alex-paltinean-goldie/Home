@@ -10,7 +10,7 @@ public class PublicController {
 
     @GetMapping
     public PublicResponse getDefaults() {
-        return new PublicResponse("testing");
+        return new PublicResponse("testing2");
     }
 
     public record PublicResponse(String text) {

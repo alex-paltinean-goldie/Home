@@ -6,7 +6,6 @@ spec:
   selector:
     app: mariadb
   ports:
-    - protocol: TCP
-      port: 3306
+    - port: 3308
       targetPort: 3306
-  clusterIP: None  # Internal DB access only
+  type: LoadBalancer
