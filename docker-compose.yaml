@@ -21,7 +21,7 @@ services:
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassword
     ports:
-      - "3308:3306"
+      - "8070:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
 
