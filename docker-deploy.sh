@@ -6,6 +6,14 @@ DEPLOYMENT_FILE="kube/app-deployment.yaml"
 SERVICE_FILE="kube/app-service.yaml"
 APP_LABEL="app=spring-boot-app"
 
+echo "📦 Git pull..."
+if git pull; then
+    echo "✅ Git pull successful!"
+else
+    echo "❌ GIt pull failed! Exiting..."
+    exit 1
+fi
+
 echo "📦 Cleaning and building JAR file with the 'prod' profile..."
 if ./gradlew clean build -x test -Pprod; then
     echo "✅ JAR build successful!"
