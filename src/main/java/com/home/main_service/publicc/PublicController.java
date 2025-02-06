@@ -15,7 +15,7 @@ public class PublicController {
     @GetMapping
     public PublicResponse getDefaults() {
         logger.info("GET public jenkins2");
-        return new PublicResponse("testing jenkins auto");
+        return new PublicResponse("testing jenkins auto 2");
     }
 
     public record PublicResponse(String text) {
