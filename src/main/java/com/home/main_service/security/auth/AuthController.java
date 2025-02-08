@@ -23,7 +23,7 @@ public class AuthController {
     public AuthResponse login(@RequestBody AuthRequest authRequest) {
         if (userRepository.findByEmail(authRequest.getUsername()).isPresent()) {
             String token = jwtUtil.generateToken(authRequest.getUsername());
-            return new AuthResponse(token);
+            return new AuthResponse(token, authRequest.getUsername());
         } else {
             throw new RuntimeException("Invalid credentials");
         }
@@ -38,7 +38,7 @@ public class AuthController {
                     .role("ROLE_USER")
                     .build());
             String token = jwtUtil.generateToken(authRequest.getUsername());
-            return new AuthResponse(token);
+            return new AuthResponse(token, authRequest.getUsername());
         } else {
             throw new RuntimeException("User already present");
         }
