@@ -1,26 +1,22 @@
 package com.home.main_service.person;
 
 
-import jakarta.persistence.*;
+import com.home.main_service.base.BaseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(nullable = false)
-    private Long userId;
+public class Person extends BaseEntity {
 
     @Column
     private Gender gender;

@@ -1,14 +1,11 @@
 package com.home.main_service.person;
 
-import com.home.main_service.user.User;
-import org.springframework.data.repository.CrudRepository;
+import com.home.main_service.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Long> {
-
-    Optional<Person> findByUserId(Long userId);
+public interface PersonRepository extends BaseRepository<Person> {
 
 }
