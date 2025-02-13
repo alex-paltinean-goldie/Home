@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/person")
-public class PersonController extends SingletonBaseController<Person, PersonDTO> {
+public class PersonController extends SingletonBaseController<Person, PersonDTO, UpdatePersonDTO> {
 
 }
 

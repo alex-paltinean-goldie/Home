@@ -1,8 +1,10 @@
 package com.home.main_service.base;
 
-public interface BaseMapper<T extends BaseEntity, DTO extends BaseDTO> {
+import org.mapstruct.MappingTarget;
+
+public interface BaseMapper<T extends BaseEntity, DTO extends BaseDTO, U extends BaseUpdateDTO> {
     DTO toDTO(T entity);
 
-    T toEntity(DTO dto);
+    void update(@MappingTarget T entity, U updateRequest);
 
 }

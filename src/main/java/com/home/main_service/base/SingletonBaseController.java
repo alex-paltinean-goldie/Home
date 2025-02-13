@@ -8,30 +8,26 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-public class SingletonBaseController<T extends BaseEntity, DTO extends BaseDTO> {
+public class SingletonBaseController<T extends BaseEntity, R extends BaseDTO, U extends BaseUpdateDTO> {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private BaseService<T> service;
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    private BaseMapper<T, DTO> mapper;
+    private BaseMapper<T, R, U> mapper;
     @Autowired
     private UserRequestContext userRequestContext;
 
     @GetMapping()
-    public DTO get() {
+    public R get() {
         return mapper.toDTO(service.findByUserId(userRequestContext.getId()));
     }
 
     @PutMapping()
-    public DTO update(@RequestBody DTO request) {
-        T existingEntity = service.findById(request.getId());
-        if (existingEntity != null && !existingEntity.getUserId().equals(request.getUserId())) {
-            throw new RuntimeException();
-        }
-        T newEntity = mapper.toEntity(request);
-        newEntity.setUserId(userRequestContext.getId());
-        return mapper.toDTO(service.save(newEntity));
+    public R update(@RequestBody U request) {
+        T entity = service.findByUserId(userRequestContext.getId());
+        mapper.update(entity, request);
+        return mapper.toDTO(service.save(entity));
     }
 
     @DeleteMapping()
