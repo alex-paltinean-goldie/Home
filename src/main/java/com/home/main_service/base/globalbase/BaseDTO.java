@@ -1,4 +1,4 @@
-package com.home.main_service.base;
+package com.home.main_service.base.globalbase;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
@@ -9,8 +9,6 @@ import java.util.UUID;
 @Data
 public class BaseDTO {
     protected UUID id;
-
-    protected UUID userId;
 
     protected Instant createdAt;
 

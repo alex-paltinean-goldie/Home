@@ -1,4 +1,4 @@
-package com.home.main_service.base;
+package com.home.main_service.base.globalbase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -6,24 +6,20 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class BaseService<T extends BaseEntity> {
+public class BaseService<E extends BaseEntity> {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    private BaseRepository<T> repository;
+    private BaseRepository<E> repository;
 
-    public List<T> findAll() {
+    public List<E> findAll() {
         return repository.findAll();
     }
 
-    public T findById(UUID id) {
+    public E findById(UUID id) {
         return repository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    public T findByUserId(UUID userId) {
-        return repository.findByUserId(userId).orElseThrow(RuntimeException::new);
-    }
-
-    public T save(T entity) {
+    public E save(E entity) {
         return repository.save(entity);
     }
 
@@ -31,7 +27,4 @@ public class BaseService<T extends BaseEntity> {
         repository.deleteById(id);
     }
 
-    public void deleteByUserId(UUID userId) {
-        repository.deleteByUserId(userId);
-    }
 }

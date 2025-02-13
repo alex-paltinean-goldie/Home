@@ -1,8 +1,8 @@
 package com.home.main_service.person;
 
-import com.home.main_service.base.BaseService;
+import com.home.main_service.base.userbase.UserBaseService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonService extends BaseService<Person> {
+public class PersonService extends UserBaseService<Person> {
 }

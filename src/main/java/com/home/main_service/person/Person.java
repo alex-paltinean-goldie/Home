@@ -1,14 +1,14 @@
 package com.home.main_service.person;
 
 
-import com.home.main_service.base.BaseEntity;
+import com.home.main_service.base.userbase.UserBaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
@@ -16,16 +16,17 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Person extends BaseEntity {
+public class Person extends UserBaseEntity {
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @Column
-    private double height;
+    private int height;
 
     @Column
-    private double weight;
+    private float weight;
 
     @Column
     private Instant birthdate;

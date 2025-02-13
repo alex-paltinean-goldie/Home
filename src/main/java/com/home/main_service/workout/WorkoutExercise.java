@@ -1,6 +1,6 @@
 package com.home.main_service.workout;
 
-import com.home.main_service.base.BaseEntity;
+import com.home.main_service.base.userbase.UserBaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "workout_exercises")
-public class WorkoutExercise extends BaseEntity {
+public class WorkoutExercise extends UserBaseEntity {
     @Column(name = "workout_id", nullable = false)
     private UUID workoutId;
 
@@ -26,13 +26,10 @@ public class WorkoutExercise extends BaseEntity {
     @OneToMany(mappedBy = "exercise", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ExerciseSet> sets;
 
-    @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @Column(name = "superset_id")
-    private int supersetId;
+    private Integer supersetId;
 
-    @Column(name = "rest_seconds")
     private Integer restSeconds;
 }
 

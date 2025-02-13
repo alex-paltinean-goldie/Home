@@ -1,11 +1,9 @@
 package com.home.main_service.person;
 
-import com.home.main_service.base.BaseRepository;
+import com.home.main_service.base.userbase.UserBaseRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
-
 @Repository
-public interface PersonRepository extends BaseRepository<Person> {
+public interface PersonRepository extends UserBaseRepository<Person> {
 
 }

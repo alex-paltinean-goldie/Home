@@ -1,4 +1,4 @@
-package com.home.main_service.base;
+package com.home.main_service.base.globalbase;
 
 import lombok.Data;
 

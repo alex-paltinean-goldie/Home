@@ -1,152 +1,110 @@
 package com.home.main_service.exercise;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.home.main_service.base.globalbase.BaseEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "exercises")
-public class Exercise {
-    @Id
-    @Column(nullable = false)
-    private UUID id;
-
-    @Column
+public class Exercise extends BaseEntity {
     private String title;
-
-    @Column
     private Integer priority;
-
-    @Column(name = "exercise_type")
+    @Enumerated(EnumType.STRING)
     private ExerciseType exerciseType;
-
-    @Column(name = "equipment_category")
+    @Enumerated(EnumType.STRING)
     private EquipmentCategory equipmentCategory;
-
-    @Column(name = "volume_doubling_enabled")
-    private Boolean volumeDoublingEnabled;
+    @Column(columnDefinition = "bit default false")
+    private boolean volumeDoublingEnabled;
 
     // Head and Neck Muscles
-    @Column(name = "sternocleidomastoid")
-    private Double sternocleidomastoid;
-
-    @Column(name = "upper_trapezius")
-    private Double upperTrapezius;
-
-    @Column(name = "middle_trapezius")
-    private Double middleTrapezius;
-
-    @Column(name = "lower_trapezius")
-    private Double lowerTrapezius;
+    @Column(columnDefinition = "float default 0")
+    private float sternocleidomastoid;
+    @Column(columnDefinition = "float default 0")
+    private float upperTrapezius;
+    @Column(columnDefinition = "float default 0")
+    private float middleTrapezius;
+    @Column(columnDefinition = "float default 0")
+    private float lowerTrapezius;
 
     // Shoulder Muscles
-    @Column(name = "deltoid_anterior")
-    private Double deltoidAnterior;
-
-    @Column(name = "deltoid_lateral")
-    private Double deltoidLateral;
-
-    @Column(name = "deltoid_posterior")
-    private Double deltoidPosterior;
+    @Column(columnDefinition = "float default 0")
+    private float deltoidAnterior;
+    @Column(columnDefinition = "float default 0")
+    private float deltoidLateral;
+    @Column(columnDefinition = "float default 0")
+    private float deltoidPosterior;
 
     // Chest Muscles
-    @Column(name = "upper_pectoralis_major")
-    private Double upperPectoralisMajor;
-
-    @Column(name = "middle_pectoralis_major")
-    private Double middlePectoralisMajor;
-
-    @Column(name = "lower_pectoralis_major")
-    private Double lowerPectoralisMajor;
-
-    @Column(name = "pectoralis_minor")
-    private Double pectoralisMinor;
+    @Column(columnDefinition = "float default 0")
+    private float upperPectoralisMajor;
+    @Column(columnDefinition = "float default 0")
+    private float middlePectoralisMajor;
+    @Column(columnDefinition = "float default 0")
+    private float lowerPectoralisMajor;
+    @Column(columnDefinition = "float default 0")
+    private float pectoralisMinor;
 
     // Arm Muscles
-    @Column(name = "long_head_biceps_brachii")
-    private Double longHeadBicepsBrachii;
-
-    @Column(name = "short_head_biceps_brachii")
-    private Double shortHeadBicepsBrachii;
-
-    @Column(name = "long_head_triceps_brachii")
-    private Double longHeadTricepsBrachii;
-
-    @Column(name = "lateral_head_triceps_brachii")
-    private Double lateralHeadTricepsBrachii;
-
-    @Column(name = "medial_head_triceps_brachii")
-    private Double medialHeadTricepsBrachii;
-
-    @Column(name = "brachialis")
-    private Double brachialis;
+    @Column(columnDefinition = "float default 0")
+    private float longHeadBicepsBrachii;
+    @Column(columnDefinition = "float default 0")
+    private float shortHeadBicepsBrachii;
+    @Column(columnDefinition = "float default 0")
+    private float longHeadTricepsBrachii;
+    @Column(columnDefinition = "float default 0")
+    private float lateralHeadTricepsBrachii;
+    @Column(columnDefinition = "float default 0")
+    private float medialHeadTricepsBrachii;
+    @Column(columnDefinition = "float default 0")
+    private float brachialis;
 
     // Forearm Muscles
-    @Column(name = "forearm_flexors")
-    private Double forearmFlexors;
-
-    @Column(name = "forearm_extensors")
-    private Double forearmExtensors;
+    @Column(columnDefinition = "float default 0")
+    private float forearmFlexors;
+    @Column(columnDefinition = "float default 0")
+    private float forearmExtensors;
 
     // Back Muscles
-    @Column(name = "latissimus_dorsi")
-    private Double latissimusDorsi;
-
-    @Column(name = "rhomboids")
-    private Double rhomboids;
-
-    @Column(name = "erector_spinae")
-    private Double erectorSpinae;
+    @Column(columnDefinition = "float default 0")
+    private float latissimusDorsi;
+    @Column(columnDefinition = "float default 0")
+    private float rhomboids;
+    @Column(columnDefinition = "float default 0")
+    private float erectorSpinae;
 
     // Abdominal Muscles
-    @Column(name = "upper_rectus_abdominis")
-    private Double uperRectusAbdominis;
-
-    @Column(name = "lower_rectus_abdominis")
-    private Double lowerRectusAbdominis;
-
-    @Column(name = "external_obliques")
-    private Double externalObliques;
-
-    @Column(name = "internal_obliques")
-    private Double internalObliques;
-
-    @Column(name = "transversus_abdominis")
-    private Double transversusAbdominis;
+    @Column(columnDefinition = "float default 0")
+    private float uperRectusAbdominis;
+    @Column(columnDefinition = "float default 0")
+    private float lowerRectusAbdominis;
+    @Column(columnDefinition = "float default 0")
+    private float externalObliques;
+    @Column(columnDefinition = "float default 0")
+    private float internalObliques;
+    @Column(columnDefinition = "float default 0")
+    private float transversusAbdominis;
 
     // Hip and Glute Muscles
-    @Column(name = "gluteus_maximus")
-    private Double gluteusMaximus;
-
-    @Column(name = "gluteus_medius")
-    private Double gluteusMedius;
+    @Column(columnDefinition = "float default 0")
+    private float gluteusMaximus;
+    @Column(columnDefinition = "float default 0")
+    private float gluteusMedius;
 
     // Leg Muscles
-    @Column(name = "quadriceps_femoris")
-    private Double quadricepsFemoris;
-
-    @Column(name = "hamstrings")
-    private Double hamstrings;
-
-    @Column(name = "gastrocnemius")
-    private Double gastrocnemius;
-
-    @Column(name = "soleus")
-    private Double soleus;
-
-    @Column(name = "tibialis_anterior")
-    private Double tibialisAnterior;
-
+    @Column(columnDefinition = "float default 0")
+    private float quadricepsFemoris;
+    @Column(columnDefinition = "float default 0")
+    private float hamstrings;
+    @Column(columnDefinition = "float default 0")
+    private float gastrocnemius;
+    @Column(columnDefinition = "float default 0")
+    private float soleus;
+    @Column(columnDefinition = "float default 0")
+    private float tibialisAnterior;
 }
 

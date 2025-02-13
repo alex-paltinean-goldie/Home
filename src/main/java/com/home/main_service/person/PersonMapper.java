@@ -1,6 +1,6 @@
 package com.home.main_service.person;
 
-import com.home.main_service.base.BaseMapper;
+import com.home.main_service.base.globalbase.BaseMapper;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

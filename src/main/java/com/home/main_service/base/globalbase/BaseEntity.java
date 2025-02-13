@@ -1,4 +1,4 @@
-package com.home.main_service.base;
+package com.home.main_service.base.globalbase;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
@@ -24,9 +24,6 @@ public class BaseEntity {
     @jakarta.persistence.GeneratedValue(generator = "UUID")
     @Column(nullable = false)
     protected UUID id;
-
-    @Column(name = "user_id")
-    protected UUID userId;
 
     @CreatedDate
     @Column(name = "created_at")

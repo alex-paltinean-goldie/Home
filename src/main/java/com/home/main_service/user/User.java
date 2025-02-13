@@ -1,7 +1,7 @@
 package com.home.main_service.user;
 
 
-import com.home.main_service.base.BaseEntity;
+import com.home.main_service.base.globalbase.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

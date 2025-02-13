@@ -1,22 +1,14 @@
-package com.home.main_service.base;
+package com.home.main_service.base.userbase;
 
-import com.home.main_service.security.UserRequestContext;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.home.main_service.base.globalbase.BaseDTO;
+import com.home.main_service.base.globalbase.BaseUpdateDTO;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-public class SingletonBaseController<T extends BaseEntity, R extends BaseDTO, U extends BaseUpdateDTO> {
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    @Autowired
-    private BaseService<T> service;
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    @Autowired
-    private BaseMapper<T, R, U> mapper;
-    @Autowired
-    private UserRequestContext userRequestContext;
+public class SingletonUserBaseController<T extends UserBaseEntity, R extends BaseDTO, U extends BaseUpdateDTO> extends UserBaseController<T, R, U> {
 
     @GetMapping()
     public R get() {

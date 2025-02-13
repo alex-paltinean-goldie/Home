@@ -1,15 +1,15 @@
 package com.home.main_service.person;
 
-import com.home.main_service.base.BaseDTO;
+import com.home.main_service.base.userbase.UserBaseDTO;
 import lombok.Data;
 
 import java.time.Instant;
 
 @Data
-public class PersonDTO extends BaseDTO {
+public class PersonDTO extends UserBaseDTO {
     private Gender gender;
-    private double height;
-    private double weight;
+    private int height;
+    private float weight;
     private Instant birthdate;
 
 }
